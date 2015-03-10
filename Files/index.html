@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="You Got A Follow">
+  <meta name="keywords" content="you got a follow, twitch, overwolf, streaming">
+  <meta name="author" content="William Cook">
+  <title>You Got A Follow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body ng-app="main">
+
+  <header>
+
+    <span> close | minimize | about </span>
+
+  </header>
+
+
+
+  <main >
+
+    <h1>You Got A Follow from bind-name-here!</h1>
+
+    <p>Thank you so much for following bind-name-here! Welcome to the team!</p>
+
+    <img src="images/connect-with-twitch-dark.png" ng-controller="TwitchController as twitch" ng-click="twitch.twitchConnect()">
+
+  </main>
+
+
+
+  <footer>
+
+    <small> (c) William Cook 2015 </small>
+
+  </footer>
+
+
+
+  <!-- Libs -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+  <script>
+  Twitch.init({clientId: 'dsuhxputoo00pzdxlfrqh8kenmfsy88'}, function(error, status) {
+
+    // the sdk is now loaded
+    console.log("twitch init status: " + JSON.stringify(status));
+    console.log("twitch init error: " + JSON.stringify(error));
+    console.log("the library is now loaded");
+
+  });
+  </script>
+  <!-- App -->
+  <script type="text/javascript" src="main.js"></script>
+
+</body>
+
+</html>
