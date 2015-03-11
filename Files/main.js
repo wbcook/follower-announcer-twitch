@@ -19,6 +19,8 @@
   */
   app.controller("TwitchController", [ '$scope', function($scope){
 
+    this.isConnected = Twitch.getToken();
+
     this.twitchConnect = function() {
 
       Twitch.login({
@@ -27,8 +29,8 @@
         scope: ['user_read', 'channel_read']
       });
 
-    };
+    }; // twitchConnect
 
-  }]);
+  }]); // TwitchController
 
 })();

@@ -13,7 +13,7 @@
 
   <header>
 
-    <span> close | minimize | about </span>
+    <span> x | _ | % | ? </span>
 
   </header>
 
@@ -25,7 +25,8 @@
 
     <p>Thank you so much for following bind-name-here! Welcome to the team!</p>
 
-    <img src="images/connect-with-twitch-dark.png" ng-controller="TwitchController as twitch" ng-click="twitch.twitchConnect()">
+    <img
+    src="images/connect-with-twitch-dark.png" ng-controller="TwitchController as twitch" ng-click="twitch.twitchConnect()" ng-hide="twitch.isConnected">
 
   </main>
 
@@ -33,7 +34,7 @@
 
   <footer>
 
-    <small> (c) William Cook 2015 </small>
+    <small> &copy; William Cook 2015 </small>
 
   </footer>
 
