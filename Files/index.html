@@ -25,8 +25,9 @@
 
     <p>Thank you so much for following bind-name-here! Welcome to the team!</p>
 
-    <img
-    src="images/connect-with-twitch-dark.png" ng-controller="TwitchController as twitch" ng-click="twitch.twitchConnect()" ng-hide="twitch.isConnected">
+    <img src="images/connect-with-twitch-dark.png" ng-controller="TwitchController as twitch" ng-click="twitch.twitchConnect()" ng-hide="twitch.isConnected">
+
+    <button ng-controller="FollowController as follow" ng-click="follow.getFollows()">Follows</button>
 
   </main>
 
@@ -49,8 +50,6 @@
 
     // the sdk is now loaded
     console.log("twitch init status: " + JSON.stringify(status));
-    console.log("twitch init error: " + JSON.stringify(error));
-    console.log("the library is now loaded");
 
   });
   </script>

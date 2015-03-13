@@ -33,4 +33,21 @@
 
   }]); // TwitchController
 
+  /**
+  *
+  * FollowController
+  *
+  */
+  app.controller("FollowController", [ '$scope', function($scope){
+
+    this.getFollows = function() {
+
+      Twitch.api({method: 'channel'}, function(error, channel) {
+        console.log(channel._links.follows);
+      });
+
+    }; // getFollows
+
+  }]); // FollowController
+
 })();
