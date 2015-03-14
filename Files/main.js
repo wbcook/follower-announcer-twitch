@@ -40,11 +40,17 @@
   */
   app.controller("FollowController", [ '$scope', function($scope){
 
+    this.user = 'themagicdwarf';
+
     this.getFollows = function() {
 
-      Twitch.api({method: 'channel'}, function(error, channel) {
-        console.log(channel._links.follows);
-      });
+      // GET the latest 25 follows for this users channel.
+      Twitch.api({method: 'channels/' + this.user + '/follows', params: {limit:25, offset:0} }, function(error, follows) {
+
+        //console.log(follows.follows[0].user.display_name);
+        //alert("Thanks for following: " + follows.follows[0].user.display_name + "!");
+
+      }); // GET follows
 
     }; // getFollows
 
