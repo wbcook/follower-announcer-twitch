@@ -6,6 +6,7 @@
   <meta name="keywords" content="you got a follow, twitch, overwolf, streaming">
   <meta name="author" content="William Cook">
   <title>You Got A Follow</title>
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,29 +14,30 @@
 
   <header>
 
-    <span> x | _ | % | ? </span>
-
   </header>
 
 
 
   <main >
 
-    <h1>You Got A Follow from bind-name-here!</h1>
+    <div ng-controller="FollowController as follow">
 
-    <p>Thank you so much for following bind-name-here! Welcome to the team!</p>
+      <span> You got a follow from: </span>
+      <h1>Themagicdwarf</h1>
+      <button ng-click="follow.getFollows()">Follows</button>
 
-    <img src="images/connect-with-twitch-dark.png" ng-controller="TwitchController as twitch" ng-click="twitch.twitchConnect()" ng-hide="twitch.isConnected">
+      <form>
+        <input type="text">
+        <button>Submit</button>
+      </form>
 
-    <button ng-controller="FollowController as follow" ng-click="follow.getFollows()">Follows</button>
+    </div>
 
   </main>
 
 
 
   <footer>
-
-    <small> &copy; William Cook 2015 </small>
 
   </footer>
 

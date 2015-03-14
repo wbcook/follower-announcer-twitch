@@ -14,27 +14,6 @@
 
   /**
   *
-  * TwitchController
-  *
-  */
-  app.controller("TwitchController", [ '$scope', function($scope){
-
-    this.isConnected = Twitch.getToken();
-
-    this.twitchConnect = function() {
-
-      Twitch.login({
-        redirect_uri: 'overwolf-extension://bkioibgppidmhgjmkjblnhbadfojbgkpfdbeldbh/Files/index.html',
-        popup: false,
-        scope: ['user_read', 'channel_read']
-      });
-
-    }; // twitchConnect
-
-  }]); // TwitchController
-
-  /**
-  *
   * FollowController
   *
   */
@@ -50,10 +29,10 @@
         //console.log(follows.follows[0].user.display_name);
         //alert("Thanks for following: " + follows.follows[0].user.display_name + "!");
 
-      }); // GET follows
+      });
 
-    }; // getFollows
+    };
 
-  }]); // FollowController
+  }]);
 
 })();
