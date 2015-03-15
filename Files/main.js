@@ -19,20 +19,45 @@
   */
   app.controller("FollowController", [ '$scope', function($scope){
 
-    this.user = 'themagicdwarf';
+    this.user = current;
+
+    this.follower = recent;
 
     this.getFollows = function() {
 
-      // GET the latest 25 follows for this users channel.
-      Twitch.api({method: 'channels/' + this.user + '/follows', params: {limit:25, offset:0} }, function(error, follows) {
+      // GET the latest 5 follows for this user's channel.
+      Twitch.api({method: 'channels/themagicdwarf/follows', params: {limit:5, offset:0} }, function(error, follows) {
 
         //console.log(follows.follows[0].user.display_name);
         //alert("Thanks for following: " + follows.follows[0].user.display_name + "!");
+        recent[0].name = follows.follows[0].user.display_name;
 
       });
 
     };
 
-  }]);
+  }]); // FollowController
+
+  var current = {
+    name: 'themagicdwarf'
+  }
+
+  var recent = [
+    {
+      name: 'none'
+    },
+    {
+      name: 'none'
+    },
+    {
+      name: 'none'
+    },
+    {
+      name: 'none'
+    },
+    {
+      name: 'none'
+    }
+  ];
 
 })();

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="main">
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="You Got A Follow">
@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body ng-app="main">
+<body>
 
   <header>
 
@@ -22,12 +22,11 @@
 
     <div ng-controller="FollowController as follow">
 
-      <span> You got a follow from: </span>
-      <h1>Themagicdwarf</h1>
-      <button ng-click="follow.getFollows()">Follows</button>
+      <span> {{follow.user.name}} got a follow from: </span>
+      <h1 ng-click="follow.getFollows()">{{follow.follower[0].name}}</h1>
 
       <form>
-        <input type="text">
+        <input>
         <button>Submit</button>
       </form>
 
