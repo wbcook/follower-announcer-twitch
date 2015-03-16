@@ -22,13 +22,10 @@
 
     <div ng-controller="FollowController as follow">
 
-      <span> {{follow.user.name}} got a follow from: </span>
-      <h1 ng-click="follow.getFollows()">{{follow.follower[0].name}}</h1>
-
-      <form>
-        <input>
-        <button>Submit</button>
-      </form>
+      <div><span ng-bind="follow.user.name"></span> got a follow from: </div>
+      <h1 ng-repeat="follower in follow.follower">{{follower.name}}</h1>
+      <button ng-click="follow.getFollows(follow.user.name)">Refresh</button>
+      <input type="text" ng-model="follow.user.name">
 
     </div>
 

@@ -19,14 +19,12 @@
   */
   app.controller("FollowController", [ '$scope', '$interval', function($scope, $interval){
 
-    this.user = current;
+    $scope.user = current; // user is shared across multiple controllers, so it must be scope or a service
 
     this.follower = recent;
 
-    this.getFollows = function(user) {
-
-      // Get the latest 5 follows for this user's channel.
-      Twitch.api({method: 'channels/' + user + '/follows', params: {limit:5, offset:0} }, function(error, follows) {
+    var getFollowsInterval = $interval( function(){
+      Twitch.api({method: 'channels/'+ $scope.user +'/follows', params: {limit:5, offset:0} }, function(error, follows) {
 
         //console.log(follows.follows[0].user.display_name);
         //alert("Thanks for following: " + follows.follows[0].user.display_name + "!");
@@ -37,8 +35,7 @@
         recent[4].name = follows.follows[4].user.display_name;
 
       });
-
-    };
+      }, 5000);
 
   }]); // FollowController
 
