@@ -19,32 +19,39 @@
   */
   app.controller("FollowController", [ '$scope', '$interval', function($scope, $interval){
 
-    this.user = current;
-
-    this.follower = recent;
-
-    this.getFollows = function(user) {
-
-      // Get the latest 5 follows for this user's channel.
-      Twitch.api({method: 'channels/' + user + '/follows', params: {limit:5, offset:0} }, function(error, follows) {
-
-        //console.log(follows.follows[0].user.display_name);
-        //alert("Thanks for following: " + follows.follows[0].user.display_name + "!");
-        recent[0].name = follows.follows[0].user.display_name;
-        recent[1].name = follows.follows[1].user.display_name;
-        recent[2].name = follows.follows[2].user.display_name;
-        recent[3].name = follows.follows[3].user.display_name;
-        recent[4].name = follows.follows[4].user.display_name;
-
-      });
-
+    /**
+    $scope.followers[gregg] = follows.follows[0].user.display_name;
+    
+    $scope followers = {
+      gregg: {name: gregg, alerted: false},
+      kitty: {name: kitty, alerted: true}
     };
 
-  }]); // FollowController
+    var alerted = [
+      followers.kitty
+    ];
+    var notAlerted = [
+      followers.gregg
+    ];
+    */
 
-  var current = {
-    name: 'Enter your twitch name'
-  }
+    $scope.user = "Enter your name";
+
+    $scope.follower = [];
+
+    $scope.getFollowsInterval = $interval( function(){
+      Twitch.api({method: 'channels/'+ $scope.user +'/follows', params: {limit:5, offset:0} }, function(error, follows) {
+
+        $scope.follower.push(follows.follows[0].user.display_name);
+        $scope.follower.push(follows.follows[1].user.display_name);
+        $scope.follower.push(follows.follows[2].user.display_name);
+        $scope.follower.push(follows.follows[3].user.display_name);
+        $scope.follower.push(follows.follows[4].user.display_name);
+
+      });
+    }, 5000);
+
+  }]); // FollowController
 
   var recent = [
     {

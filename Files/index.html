@@ -20,12 +20,14 @@
 
   <main >
 
-    <div ng-controller="FollowController as follow">
+    <div ng-controller="FollowController">
 
-      <div><span ng-bind="follow.user.name"></span> got a follow from: </div>
-      <h1 ng-repeat="follower in follow.follower">{{follower.name}}</h1>
-      <button ng-click="follow.getFollows(follow.user.name)">Refresh</button>
-      <input type="text" ng-model="follow.user.name">
+      <div>
+        <span ng-bind="user"></span>
+        got a follow from:
+      </div>
+      <h1 ng-repeat="follower in follower" ng-bind="follower"></h1>
+      <input type="text" ng-model="user">
 
     </div>
 
