@@ -19,56 +19,21 @@
   */
   app.controller("FollowController", [ '$scope', '$interval', function($scope, $interval){
 
-    /**
-    $scope.followers[gregg] = follows.follows[0].user.display_name;
-    
-    $scope followers = {
-      gregg: {name: gregg, alerted: false},
-      kitty: {name: kitty, alerted: true}
-    };
+    $scope.channel = "themagicdwarf";
 
-    var alerted = [
-      followers.kitty
-    ];
-    var notAlerted = [
-      followers.gregg
-    ];
-    */
-
-    $scope.user = "Enter your name";
-
-    $scope.follower = [];
+    $scope.followerList = {};
 
     $scope.getFollowsInterval = $interval( function(){
-      Twitch.api({method: 'channels/'+ $scope.user +'/follows', params: {limit:5, offset:0} }, function(error, follows) {
+      Twitch.api({method: 'channels/' + $scope.channel + '/follows', params: {limit:5, offset:0} }, function(error, follows) {
 
-        $scope.follower.push(follows.follows[0].user.display_name);
-        $scope.follower.push(follows.follows[1].user.display_name);
-        $scope.follower.push(follows.follows[2].user.display_name);
-        $scope.follower.push(follows.follows[3].user.display_name);
-        $scope.follower.push(follows.follows[4].user.display_name);
+        for (var i = 0; i < 5; i++){
+          $scope.followerList[follows.follows[i].user.display_name] = {name: follows.follows[i].user.display_name, alert: false};
+        }
 
       });
+
     }, 5000);
 
   }]); // FollowController
-
-  var recent = [
-    {
-      name: '?'
-    },
-    {
-      name: '?'
-    },
-    {
-      name: '?'
-    },
-    {
-      name: '?'
-    },
-    {
-      name: '?'
-    }
-  ];
 
 })();

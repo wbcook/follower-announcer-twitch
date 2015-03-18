@@ -23,11 +23,11 @@
     <div ng-controller="FollowController">
 
       <div>
-        <span ng-bind="user"></span>
+        <span ng-bind="channel"></span>
         got a follow from:
       </div>
-      <h1 ng-repeat="follower in follower" ng-bind="follower"></h1>
-      <input type="text" ng-model="user">
+      <h1 ng-repeat="follower in followerList" ng-bind="follower.name"></h1>
+      <input type="text" ng-model="channel">
 
     </div>
 
