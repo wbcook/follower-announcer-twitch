@@ -23,7 +23,7 @@
 
     $scope.followerList = {};
 
-    $scope.getFollowsInterval = $interval( function(){
+    $scope.checkForNewFollowers = $interval( function(){
       Twitch.api({method: 'channels/' + $scope.channel + '/follows', params: {limit:5, offset:0} }, function(error, follows) {
 
         for (var i = 0; i < 5; i++){

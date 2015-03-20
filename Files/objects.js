@@ -26,3 +26,28 @@ var notAlerted = [
   followers.gregg
 ];
 */
+
+$scope.followerList = {};
+
+$scope.alertedList = {};
+
+// interval
+isAlerted( $scope.followerlist, $scope.alertedList );
+
+var isAlerted = function( l1, l2 ) {
+  for (follower in l1) {
+    isMember(follower, l2);
+  };
+}
+
+var isMember = function( f, l ) {
+  for (follower in l) {
+    if (follower.name == f.name) {
+      continue;
+    }
+    else{
+      alert(f.name + "is a new follower!");
+      $scope.alertedList[f.name] = f.name;
+    }
+  };
+}
