@@ -51,3 +51,14 @@ var isMember = function( f, l ) {
     }
   };
 }
+
+
+// for each follow in the follows Object, check if it is on the session list, if not, alert it and add it.
+for (var i = 0; i < 5; i++){
+  if (followerList[follows.follows[i].display_name]) {
+    continue;
+  } else {
+    $scope.followerList[follows.follows[i].user.display_name] = {name: follows.follows[i].user.display_name};
+    alert($scope.followerList[follows.follows[i].user.display_name]);
+  }
+}
