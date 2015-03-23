@@ -4,7 +4,6 @@
 * UID: bkioibgppidmhgjmkjblnhbadfojbgkpfdbeldbh
 * Redirect URI: overwolf-extension://bkioibgppidmhgjmkjblnhbadfojbgkpfdbeldbh/Files/index.html
 * client_id: dsuhxputoo00pzdxlfrqh8kenmfsy88
-* secret: astewlgs04jzd2gmbzunvl8423i5agu
 *
 */
 
@@ -19,23 +18,33 @@
   */
   app.controller("FollowController", [ '$scope', '$interval', function($scope, $interval){
 
-    $scope.channel = "themagicdwarf";
+    $scope.channel = "";
 
     $scope.followerList = {};
 
     $scope.checkForNewFollowers = $interval( function(){
-      Twitch.api({method: 'channels/' + $scope.channel + '/follows', params: {limit:5, offset:0} }, function(error, follows) {
 
-        for (var i = 0; i < 5; i++){
-          if ($scope.followerList.hasOwnProperty(follows.follows[i].user.display_name)) {
-            console.log("already on the list!");
-          } else {
-            $scope.followerList[follows.follows[i].user.display_name] = {name: follows.follows[i].user.display_name};
-            alert($scope.followerList[follows.follows[i].user.display_name].name);
+      if ($scope.channel) {
+
+        Twitch.api({method: 'channels/' + $scope.channel + '/follows', params: {limit:5, offset:0} }, function(error, follows) {
+
+          if (error) {
+            alert($scope.channel + " channel not found!")
+          }else{
+
+            for (var i = 0; i < 5; i++){
+              if ($scope.followerList.hasOwnProperty(follows.follows[i].user.display_name)) {
+                console.log("already on the list!");
+              } else {
+                $scope.followerList[follows.follows[i].user.display_name] = {name: follows.follows[i].user.display_name};
+                alert($scope.followerList[follows.follows[i].user.display_name].name);
+              }
+            }
           }
-        }
 
-      });
+        });
+
+      }
 
     }, 5000);
 
