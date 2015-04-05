@@ -1,2 +1,2 @@
 # yougotafollow
-"You Got A Follow" notification system.
+"You Got A Follow" alerts you when someone follows your Twitch.tv channel.
