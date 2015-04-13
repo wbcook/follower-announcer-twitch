@@ -1,2 +1,2 @@
-# you-got-a-follow
-"You Got A Follow" alerts you when someone follows your Twitch.tv channel.
+# Follower Announcer
+"Follower Announcer" alerts you when someone follows your Twitch.tv channel.
