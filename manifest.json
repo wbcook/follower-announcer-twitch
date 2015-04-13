@@ -2,7 +2,7 @@
 	"manifest_version":1,
 	"type":"WebApp",
 	"meta":{
-		"name":"You Got A Follow",
+		"name":"Follower Announcer",
 		"version":"1.0.0",
 		"minimum-overwolf-version":"0.77.10",
 		"author":"William Cook",
