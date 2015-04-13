@@ -1,6 +1,6 @@
 /**
 *
-* Title: You Got A Follow | Author: William Cook | Date: 3/10/2015
+* Title: Follower Announcer | Author: William Cook | Date: 3/10/2015
 * UID: bkioibgppidmhgjmkjblnhbadfojbgkpfdbeldbh
 * Redirect URI: overwolf-extension://bkioibgppidmhgjmkjblnhbadfojbgkpfdbeldbh/Files/index.html
 * client_id: dsuhxputoo00pzdxlfrqh8kenmfsy88
