@@ -40,7 +40,7 @@
           // User names not on the list get added to the list. Twitch user names are unique so they can be keys.
           // New names get alerted when they are added.
           if (error) {
-            alert($scope.channel + ":  channel not found!")
+            alert($scope.channel + ":  channel not found!");
           }else{
             for (var i = 0; i < 5; i++){
               if ($scope.followerList.hasOwnProperty(follows.follows[i].user.display_name)) {
