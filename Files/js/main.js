@@ -16,6 +16,12 @@
   * FollowController
   *
   */
+
+  var alertFollow = function(i, currentFollower) {
+    console.log(currentFollower);
+    setTimeout(function(){document.getElementById("alert").innerHTML = "Thanks for following, " + currentFollower;}, 2000 * i);
+  }
+
   app.controller("FollowController", [ '$scope', '$interval', function($scope, $interval){
 
     // The user enters a Twitch channel they want to track.
@@ -35,25 +41,28 @@
         // Request twitch for a list of the five most recent followers starting at index 0 of the list.
         Twitch.api({method: 'channels/' + $scope.channel + '/follows', params: {limit:5, offset:0} }, function(error, follows) {
 
-          // Complain if the user entered a channel that does not exist.
-          // Otherwise go through the JSON file and add the new user names to the local followerList.
-          // User names not on the list get added to the list. Twitch user names are unique so they can be keys.
+          // Complain if the user entered a channel that does not exist. Twitch returns a error if so.
+          // Otherwise go through the follow object and add the new user name to the local followerList.
+          // User names not on the list get added to the list. Twitch user names are unique so they can be property keys.
           // New names get alerted when they are added.
+
           if (error) {
             alert($scope.channel + ":  channel not found!");
           }else{
             for (var i = 0; i < 5; i++){
-              if ($scope.followerList.hasOwnProperty(follows.follows[i].user.display_name)) {
+              var currentFollower = follows.follows[i].user.display_name;
+              if ($scope.followerList.hasOwnProperty(currentFollower)) {
                 console.log("already on the list!");
               } else {
-                $scope.followerList[follows.follows[i].user.display_name] = {name: follows.follows[i].user.display_name};
-                alert($scope.followerList[follows.follows[i].user.display_name].name);
+                $scope.followerList[currentFollower] = {name: currentFollower};
+                //alert($scope.followerList[currentFollower].name);
+                alertFollow(i, currentFollower);
               }
             }
           }
-        }); //Twitch.api
+        }); // Twitch API request
       }
-    }, 5000); // checkForNewFollowers
+    }, 20000); // checkForNewFollowers
   }]); // FollowController
 
 })();
