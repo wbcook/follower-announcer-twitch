@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ng-App -->
 <html lang="en" ng-app="main">
 <head>
   <meta charset="utf-8">
@@ -6,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Tags -->
-  <meta name="description" content="You Got A Follow">
-  <meta name="keywords" content="follower announcer, twitch, overwolf, streaming">
+  <meta name="description" content="Follower Announcer">
+  <meta name="keywords" content="follower announcer, twitch, overwolf, live streaming, gaming, esports">
   <meta name="author" content="William Cook">
   <title>Follower Announcer</title>
 
@@ -16,34 +17,32 @@
   <link href="css/avatar-celebration-dance.css" rel="stylesheet">
 </head>
 
-<body>
+<body ng-controller="FollowController" class="container">
 
   <header class="chroma-key">
 
-    <div class="container">
-      <div>
-        <h1>Alert Celebration Goes Here!</h1>
-      </div>
+    <div>
+      <p id="alert" class="alert">ThisIsAReallyLongUsername followed!</p>
     </div>
 
   </header>
 
 
 
-  <main class="container">
+  <main>
 
-    <div ng-controller="FollowController">
+    <div>
+
+      <div>
+        <input type="text" placeholder="Example: cohhcarnage" ng-model="channel">
+      </div>
 
       <div>
         <p><span ng-bind="channel"></span> got a follow from:</p>
       </div>
 
       <div>
-        <h1 ng-repeat="follower in followerList" ng-bind="follower.name"></h1>
-      </div>
-
-      <div>
-        <input type="text" placeholder="Example: cohhcarnage" ng-model="channel">
+        <p ng-repeat="follower in followerList" ng-bind="follower.name"></p>
       </div>
 
     </div>
@@ -52,7 +51,7 @@
 
 
 
-  <footer class="container">
+  <footer>
 
     <div>
       <p>Enter your channel name in the box to get alerts.</p>
