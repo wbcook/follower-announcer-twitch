@@ -8,7 +8,7 @@
 */
 
 (function() {
-  
+
   var app = angular.module('main', [ ]);
 
   /**
@@ -20,9 +20,9 @@
   var alertFollow = function(i, currentFollower) {
     console.log(currentFollower);
     setTimeout(function(){
-      document.getElementById("alert").innerHTML = currentFollower + " followed you!";
+      document.getElementById("alert").innerHTML = currentFollower;
     }, 3000 * i);
-  }
+  };
 
   app.controller("FollowController", [ '$scope', '$interval', function($scope, $interval){
 

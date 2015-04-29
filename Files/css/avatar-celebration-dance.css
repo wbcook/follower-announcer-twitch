@@ -1,6 +1,7 @@
 body{
   background: black;
-  color: red;
+  color: white;
+  font-size: 14px;
 }
 
 .chroma-key{
@@ -9,20 +10,26 @@ body{
 }
 
 input[type="text"] {
-  background: white;
-  color: black;
+  background: #140000;
+  color: white;
   display: block;
-  margin: 0;
+  margin: 2rem 0rem 2rem 0rem;
   width: 100%;
   font-family: sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   appearance: none;
   box-shadow: none;
-  border-radius: none;
+  border-radius: 20px;
   padding: 10px;
-  border: solid 5px #c9c9c9;
-  transition: border 0.3s;
+  border: solid 1px red;
+  transition: box-shadow 0.7s, border 0.7s;
 }
 input[type="text"]:focus {
-  border: solid 5px #969696;
+  outline: none;
+  border: solid 1px red;
+  box-shadow: 0 0 5px 2px red;
+}
+
+.alert{
+  font-size: 2rem;
 }

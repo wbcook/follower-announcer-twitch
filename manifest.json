@@ -8,7 +8,7 @@
 		"author":"William Cook",
 		"icon":"IconMouseOver.png",
 		"icon_gray":"IconMouseNormal.png",
-		"description":"Displays a alert when you get followed on Twitch."
+		"description":"Alerts you when a viewer follows you on Twitch."
 	},
 	"permissions":
 		["Logging"],
@@ -19,9 +19,9 @@
 					"file":"Files/index.html",
 					"transparent":false,
 					"resizable":true,
-					"size":{"width":400, "height":400},
-					"min_size":{"width":400, "height":400},
-					"max_size":{"width":400, "height":400}
+					"size":{"width":450, "height":450},
+					"min_size":{"width":450, "height":125},
+					"max_size":{"width":450, "height":450}
 			}
 		}
 	},
