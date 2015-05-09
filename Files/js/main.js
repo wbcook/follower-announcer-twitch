@@ -21,7 +21,11 @@
     console.log(currentFollower);
     setTimeout(function(){
       document.getElementById("alert").innerHTML = currentFollower;
-    }, 3000 * i);
+      document.getElementById("alert").style.background = "red";
+      // Nested timeouts for the animation.
+      // Flash the alert area red for 0.8 seconds!
+      setTimeout(function(){document.getElementById("alert").style.background = "transparent";}, 800);
+    }, 6000 * i);
   };
 
   app.controller("FollowController", [ '$scope', '$interval', function($scope, $interval){
@@ -66,7 +70,7 @@
             }
           }); // Twitch API request
         }
-      }, 20000); // checkForNewFollowers
+      }, 30000); // checkForNewFollowers
     }]); // FollowController
 
   })();

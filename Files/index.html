@@ -17,7 +17,7 @@
   <link href="css/avatar-celebration-dance.css" rel="stylesheet">
 </head>
 
-<body ng-controller="FollowController" class="container">
+<body ng-controller="FollowController" class="container" onmousedown="dragMove();">
 
   <header class="chroma-key">
 
@@ -32,19 +32,15 @@
   <main>
 
     <div>
+      <input type="text" placeholder="Example: cohhcarnage" ng-model="channel">
+    </div>
 
-      <div>
-        <input type="text" placeholder="Example: cohhcarnage" ng-model="channel">
-      </div>
+    <div>
+      <p><span ng-bind="channel"></span> got a follow from:</p>
+    </div>
 
-      <div>
-        <p><span ng-bind="channel"></span> got a follow from:</p>
-      </div>
-
-      <div>
-        <p ng-repeat="follower in followerList" ng-bind="follower.name"></p>
-      </div>
-
+    <div>
+      <p ng-repeat="follower in followerList" ng-bind="follower.name"></p>
     </div>
 
   </main>
@@ -85,6 +81,16 @@
 
   <!-- Bootstrap -->
   <script src="js/bootstrap.min.js"></script>
+
+  <script>
+  function dragMove(){
+    overwolf.windows.getCurrentWindow(function(result){
+      if (result.status=="success"){
+        overwolf.windows.dragMove(result.window.id);
+      }
+    });
+  };
+  </script>
 </body>
 
 </html>
