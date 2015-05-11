@@ -14,6 +14,7 @@
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css">
   <link href="css/avatar-celebration-dance.css" rel="stylesheet">
 </head>
 
@@ -25,11 +26,17 @@
       <p id="alert" class="alert">ThisIsAReallyLongUsername followed!</p>
     </div>
 
+    <div>
+      <i class="fa fa-times" onClick="window.close()"></i>
+      <i class="fa fa-minus" ng-click="minimize()"></i>
+      <i class="fa fa-arrows"></i>
+    </div>
+
   </header>
 
 
 
-  <main>
+  <main ng-hide="isMinimized">
 
     <div>
       <input type="text" placeholder="Example: cohhcarnage" ng-model="channel">
@@ -47,7 +54,7 @@
 
 
 
-  <footer>
+  <footer ng-hide="isMinimized">
 
     <div>
       <p>Enter your channel name in the box to get alerts.</p>
@@ -82,6 +89,7 @@
   <!-- Bootstrap -->
   <script src="js/bootstrap.min.js"></script>
 
+  <!-- Overwolf Dragmove -->
   <script>
   function dragMove(){
     overwolf.windows.getCurrentWindow(function(result){
@@ -91,6 +99,7 @@
     });
   };
   </script>
+
 </body>
 
 </html>

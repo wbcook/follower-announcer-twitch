@@ -38,6 +38,12 @@
 
     $scope.followerList = {};
 
+    $scope.isMinimized = false;
+
+    $scope.minimize = function() {
+      $scope.isMinimized = !$scope.isMinimized;
+    };
+
     // Check for new followers every 20 seconds.
     $scope.checkForNewFollowers = $interval( function(){
 
